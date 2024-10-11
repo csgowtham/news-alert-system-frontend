@@ -1,0 +1,119 @@
+/* Dashboard.css */
+.container {
+    padding: 20px;
+}
+
+.dashboard-layout {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-sidebar, .right-sidebar {
+    width: 25%; /* Adjust this width as needed */
+    padding: 10px;
+}
+
+.top-headlines {
+    width: 50%; /* Adjust this width as needed */
+    padding: 10px;
+}
+
+.welcome-card, .advertisement-card, .news-card {
+    background-color: #f8f9fa; /* Light background for cards */
+    border: 1px solid #ced4da; /* Border for cards */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px;
+    margin-bottom: 15px; /* Spacing between cards */
+}
+
+.news-card {
+    background-color: #ffffff; /* White background for news cards */
+}
+
+h3, h4 {
+    margin: 0 0 10px 0; /* Space below headings */
+}
+
+p {
+    margin: 0; /* Remove default margins for paragraphs */
+}
+
+/* Dashboard.css */
+.news-image {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for images */
+    margin-bottom: 10px; /* Space below image */
+}
+
+/* Dashboard.css */
+/* Dashboard.css */
+/* Dashboard.css */
+.dashboard-container {
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-headlines {
+    flex: 3; /* Take 3 parts of the available width */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between headline cards */
+}
+
+.sidebar {
+    flex: 1; /* Sidebar takes 1 part of the available width */
+    background-color: #f0f8ff; /* Updated background color */
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    max-width: 300px;
+    border-radius: 5px; /* Slight rounding of the sidebar corners */
+}
+
+.headline-card {
+    width: 30%; /* Uniform width for all cards */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headline-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Ensures a consistent image size */
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.headline-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.read-more-btn {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}

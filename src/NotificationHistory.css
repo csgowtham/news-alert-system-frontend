@@ -1,0 +1,27 @@
+.notification-history {
+    background-color: #f9f9f9; /* Light background for notifications */
+    padding: 15px; /* Padding around the notifications */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.notification-history h2 {
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.notification-history ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+}
+
+.notification-history li {
+    margin-bottom: 10px; /* Space between notifications */
+    padding: 10px; /* Padding for each notification */
+    border: 1px solid #ddd; /* Border for each notification */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.notification-history li strong {
+    display: block; /* Make title a block element */
+    margin-bottom: 5px; /* Space below title */
+}

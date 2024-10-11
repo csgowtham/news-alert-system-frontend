@@ -1,0 +1,122 @@
+.card {
+    width: 200%; /* Use full width of the column */
+    max-width: 300px; /* Set a max-width for the card */
+    margin: auto; /* Center the card */
+    border: 1px solid #ddd; /* Optional: add border for visibility */
+}
+
+.card-img-top {
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.card-title {
+    font-size: 1.2rem; /* Adjust font size */
+}
+
+.card-text {
+    font-size: 0.9rem; /* Adjust font size */
+}
+
+.top-headlines-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    gap: 20px; /* Space between cards */
+    justify-content: space-between; /* Distribute space evenly */
+}
+
+.headline-card {
+    background-color: #fff; /* White background for each card */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: calc(30% - 20px); /* Width of each card, adjusting for gap */
+    max-width: 300px; /* Maximum width of each card */
+    overflow: hidden; /* Prevent overflow */
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.headline-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.headline-image {
+    width: 100%; /* Make image fill the card */
+    height: 180px; /* Set a uniform height */
+    object-fit: cover; /* Cover the area without stretching */
+}
+
+.headline-title {
+    font-size: 1.2em; /* Title size */
+    margin: 10px; /* Spacing around the title */
+}
+
+.headline-source, .headline-date {
+    font-size: 0.9em; /* Smaller font for source and date */
+    color: #555; /* Dark gray color for text */
+    margin: 0 10px 10px; /* Spacing around the text */
+}
+
+
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%; /* Allow cards to take up more width on smaller screens */
+    }
+
+    .card-img-top {
+        height: 120px; /* Reduce image height on smaller screens */
+    }
+}
+
+/* Example CSS for TopHeadlines */
+/* Example CSS for TopHeadlines */
+/* Example CSS for TopHeadlines */
+/* Example CSS for TopHeadlines */
+/* Example CSS for TopHeadlines */
+/* Example CSS for TopHeadlines */
+/* Example CSS for TopHeadlines */
+/* Example CSS for TopHeadlines */
+.top-headlines {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap onto the next line */
+    gap: 15px; /* Space between cards */
+    justify-content: flex-start; /* Aligns the cards at the start */
+    margin: 0 auto; /* Center the container */
+    max-width: 100%; /* Prevent overflow */
+    padding: 10px; /* Optional: padding around the cards */
+  }
+  
+  .headline-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(30% - 15px); /* Adjust width to allow for three cards */
+    max-width: calc(30% - 15px); /* Ensure max width of 3 cards per row */
+    box-sizing: border-box; /* Include padding in width calculation */
+    min-width: 250px; /* Set a minimum width for cards */
+  }
+  
+  .headline-image {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Optional: round corners */
+    margin-bottom: 10px; /* Space below the image */
+  }
+
+  
+  @media (max-width: 768px) {
+    .headline-card {
+      flex: 1 1 calc(45% - 15px); /* 2 cards in a row for medium screens */
+      max-width: calc(45% - 15px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .headline-card {
+      flex: 1 1 calc(100% - 15px); /* 1 card in a row for mobile screens */
+      max-width: calc(100% - 15px);
+    }
+  }

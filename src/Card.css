@@ -1,0 +1,25 @@
+.uniform-card {
+    height: 100px; /* Set a uniform height */
+    display: flex; /* Use flex to center content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    margin: 10px; /* Adjust spacing between cards */
+    padding: 10px; /* Optional: add padding for better spacing */
+    background-color: white; /* Ensure a background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add some shadow for depth */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.custom-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust padding for button */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.custom-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
