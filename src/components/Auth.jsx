@@ -18,19 +18,20 @@ const Auth = ({ setToken }) => {
                 ? await loginUser({ email, password }) 
                 : await registerUser({ email, password });
     
-            console.log('API Response:', response); // Log the response
+            console.log('API Response:', response);
     
-            // Access the token directly from response, since it is not nested in 'data'
-            const token = response.token; // Accessing the token correctly
+            // Access the token directly from response
+            const token = response.token; // Ensure your API responds with a token
             localStorage.setItem('token', token);
             setToken(token);
             navigate('/dashboard');
         } catch (error) {
-            setErrorMessage('Failed to log in. Please check your credentials.');
-            console.error('Error during authentication:', error); // Log the error for debugging
+            setErrorMessage(isLogin 
+                ? 'Failed to log in. Please check your credentials.' 
+                : 'Failed to register. Please try again.');
+            console.error('Error during authentication:', error);
         }
     };
-    
 
     return (
         <div className="container">

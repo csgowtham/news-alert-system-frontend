@@ -1,0 +1,26 @@
+/* Sidebar.css */
+.left-sidebar, .right-sidebar {
+    padding: 15px;
+    background-color: #f8f9fa; /* Light gray background for sidebars */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px 0; /* Space around sidebars */
+  }
+  
+  .left-sidebar h4, .right-sidebar h4 {
+    margin-top: 0; /* Remove margin from top of headings */
+  }
+  
+  .left-sidebar p, .right-sidebar p {
+    margin: 5px 0; /* Space between paragraphs */
+  }
+  
+  .left-sidebar ul, .right-sidebar ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .left-sidebar li, .right-sidebar li {
+    margin: 5px 0; /* Space between list items */
+  }
+  

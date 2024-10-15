@@ -85,3 +85,10 @@ button:focus-visible {
   font-weight: 700;
   font-style: normal;
 }
+
+* {
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+

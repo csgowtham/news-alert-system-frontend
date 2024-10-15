@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ setToken }) => {
+    const navigate = useNavigate(); // Use the useNavigate hook for navigation
+
     const handleLogout = () => {
         localStorage.removeItem('token');
         setToken(null);
+        navigate('/login'); // Redirect to login after logout
     };
 
     return (
@@ -16,13 +19,15 @@ const Navbar = ({ setToken }) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav me-auto">
-                    <li className="nav-item">
+                        <li className="nav-item">
                             <Link className="nav-link" to="/dashboard">Dashboard</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/preferences">Preferences</Link>
                         </li>
-                        
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/my-feed">News Feed</Link>
+                        </li>
                     </ul>
                     <button className="btn btn-outline-danger" onClick={handleLogout}>Logout</button>
                 </div>
