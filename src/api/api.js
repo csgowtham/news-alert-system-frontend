@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 export const loginUser = async ({ email, password }) => {
-    const response = await axios.post('http://localhost:5000/api/auth/login', {
+    const response = await axios.post('https://news-alert-system-backend.onrender.com/api/auth/login', {
         email,
         password,
     });
@@ -10,7 +10,7 @@ export const loginUser = async ({ email, password }) => {
 };
 
 export const registerUser = async ({ email, password }) => {
-    const response = await axios.post('http://localhost:5000/api/auth/register', {
+    const response = await axios.post('https://news-alert-system-backend.onrender.com/api/auth/register', {
         email,
         password,
     });
@@ -19,7 +19,7 @@ export const registerUser = async ({ email, password }) => {
 
 export const fetchTopHeadlines = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:5000/api/news/top-headlines', {
+    const response = await axios.get('https://news-alert-system-backend.onrender.com/api/news/top-headlines', {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -36,7 +36,7 @@ export const fetchNotifications = async () => {
             throw new Error('User is not authenticated. No token found.');
         }
         
-        const response = await axios.get('http://localhost:5000/api/news', {
+        const response = await axios.get('https://news-alert-system-backend.onrender.com/api/news', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -57,7 +57,7 @@ export const fetchNotifications = async () => {
 };
 export const updatePreferences = async (preferences) => {
     const token = localStorage.getItem('token');
-    const response = await axios.put('http://localhost:5000/api/preferences', preferences, {
+    const response = await axios.put('https://news-alert-system-backend.onrender.com/api/preferences', preferences, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

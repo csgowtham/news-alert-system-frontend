@@ -13,7 +13,7 @@ const MyFeed = () => {
     const fetchNews = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/news', {
+        const response = await axios.get('https://news-alert-system-backend.onrender.com/api/news', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -10,7 +10,7 @@ const LeftSidebar = () => {
     // Fetch weather data from API
     const fetchWeather = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/news/weather');
+        const response = await axios.get('https://news-alert-system-backend.onrender.com/api/news/weather');
         setWeather(response.data); // Store the weather data in the state
       } catch (error) {
         console.error('Error fetching weather data:', error);

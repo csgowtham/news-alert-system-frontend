@@ -36,7 +36,7 @@ const Preferences = () => {
 
     const fetchUserEmail = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/auth/get-user-email?id=${userId}`);
+            const response = await axios.get(`https://news-alert-system-backend.onrender.com/api/auth/get-user-email?id=${userId}`);
             console.log("Fetched email:", response.data.email);
             setEmail(response.data.email);
         } catch (error) {
@@ -69,7 +69,7 @@ const Preferences = () => {
         const token = localStorage.getItem('token');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/news/preferences', payload, {
+            const response = await axios.post('https://news-alert-system-backend.onrender.com/api/news/preferences', payload, {
                 headers: {
                     'Authorization': `Bearer ${token}`  // Fixed template literal issue
                 }
@@ -83,7 +83,7 @@ const Preferences = () => {
 
     const handleSendNotifications = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/api/news/send-notifications', {
+            const response = await axios.post('https://news-alert-system-backend.onrender.com/api/news/send-notifications', {
                 email: email,  // Use the email fetched from the backend
             });
 
