@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {jwtDecode} from 'jwt-decode'; // Corrected to default import
 
 const Preferences = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const [frequency, setFrequency] = useState('daily'); // Default frequency
-    const [message, setMessage] = useState(''); // State to display success/error messages
+    const [frequency, setFrequency] = useState('daily');
+    const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
+    const [userId, setUserId] = useState('');
 
     const availableCategories = [
         'business',
@@ -16,13 +19,36 @@ const Preferences = () => {
         'technology'
     ];
 
+    useEffect(() => {
+        console.log("Preferences component mounted!");
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            const decoded = jwtDecode(token);
+            const userIdFromToken = decoded.id;
+            setUserId(userIdFromToken);
+
+            fetchUserEmail(userIdFromToken);
+        } else {
+            console.error("No token found. Please log in.");
+        }
+    }, []);
+
+    const fetchUserEmail = async (userId) => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/auth/get-user-email?id=${userId}`);
+            console.log("Fetched email:", response.data.email);
+            setEmail(response.data.email);
+        } catch (error) {
+            console.error("Error fetching email:", error);
+        }
+    };
+
     const handleCategoryChange = (category) => {
         setSelectedCategories(prevState => {
             if (prevState.includes(category)) {
-                // If category is already selected, remove it
                 return prevState.filter(item => item !== category);
             } else {
-                // If category is not selected, add it
                 return [...prevState, category];
             }
         });
@@ -40,13 +66,12 @@ const Preferences = () => {
             frequency: frequency,
         };
 
-        // Assume you have an authentication token stored somewhere
         const token = localStorage.getItem('token');
 
         try {
             const response = await axios.post('http://localhost:5000/api/news/preferences', payload, {
                 headers: {
-                    'Authorization': `Bearer ${token}` // Add token if needed
+                    'Authorization': `Bearer ${token}`  // Fixed template literal issue
                 }
             });
             setMessage(response.data.message);
@@ -56,24 +81,22 @@ const Preferences = () => {
         }
     };
 
-    // Function to trigger the notification sending feature
     const handleSendNotifications = async () => {
         try {
-          const response = await axios.post('http://localhost:5000/api/news/send-notifications', {
-            email: 'csgowtham73@gmail.com',
-          });
-      
-          if (response.status === 200) {
-            alert(response.data.message); // Successful notification send
-          } else if (response.status === 204) {
-            alert(response.data.message); // No new notifications
-          }
+            const response = await axios.post('http://localhost:5000/api/news/send-notifications', {
+                email: email,  // Use the email fetched from the backend
+            });
+
+            if (response.status === 200) {
+                alert(response.data.message); 
+            } else if (response.status === 204) {
+                alert(response.data.message); 
+            }
         } catch (error) {
-          console.error("Error sending notifications:", error);
-          alert("Error sending notifications: " + (error.response?.data?.message || "Please try again.")); // More informative error
+            console.error("Error sending notifications:", error);
+            alert("Error sending notifications: " + (error.response?.data?.message || "Please try again.")); 
         }
-      };
-      
+    };
 
     return (
         <div>
@@ -124,6 +147,7 @@ const Preferences = () => {
             <button
                 className="btn btn-warning"
                 onClick={handleSendNotifications}
+                disabled={!email} // Disable button until email is fetched
             >
                 Send Me Notifications Now
             </button>

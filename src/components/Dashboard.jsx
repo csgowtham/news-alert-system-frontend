@@ -7,6 +7,7 @@ import '../Dashboard.css'
 const Dashboard = () => {
     const [headlines, setHeadlines] = useState([]);
     const [notifications, setNotifications] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const getTopHeadlines = async () => {
@@ -23,7 +24,8 @@ const Dashboard = () => {
                 const response = await fetchNotifications();
                 console.log('Notification Response:', response); // Log the API response
                 setNotifications(response.slice(0, 10)); // Set the notifications directly from the response
-            } catch (error) {
+            } catch (err) {
+                setError('Try Updating Your Preferences...\nError fetching news: ' + err.message);
                 console.error('Error fetching notifications:', error);
             }
         };
@@ -58,8 +60,11 @@ const Dashboard = () => {
                 </div>
 
                 {/* Sidebar for notifications */}
+                
                 <div className="sidebar">
-                    <h2>Notifications</h2>
+                
+                    <h2 style={{textAlign:"center"}}>Notifications</h2>
+                    {error && <div className="error">{error}</div>}
                     <NotificationHistory notifications={notifications} />
                 </div>
             </div>

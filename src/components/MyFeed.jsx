@@ -22,7 +22,7 @@ const MyFeed = () => {
         const filteredData = response.data.filter((item) => item.image !== null);
         setNewsData(filteredData);
       } catch (err) {
-        setError('Error fetching news: ' + err.message);
+        setError('Try Updating Your Preferences...\nError fetching news: ' + err.message);
       }
     };
 
